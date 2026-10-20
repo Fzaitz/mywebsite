@@ -1455,7 +1455,7 @@ function refreshSkillFrames(){document.querySelectorAll('.skimg iframe').forEach
 function setLang(l,init){
   LANG=l==='he'?'he':'en';
   const h=document.documentElement;h.lang=LANG;h.dir=LANG==='he'?'rtl':'ltr';
-  try{localStorage.setItem('lang',LANG)}catch(e){}
+  
   document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===LANG));
   scanLang();fillMq();if(startMq)startMq();
   if(typeof dlg!=='undefined'&&dlg&&!dlg.hidden){dlg.hidden=true;dlg.classList.remove('on');document.body.style.overflow='';if(lenis)lenis.start()}
@@ -1463,7 +1463,7 @@ function setLang(l,init){
   if(!init){buildWalk()}
 }
 document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
-function initLang(){let l='en';try{l=localStorage.getItem('lang')||'en'}catch(e){}if(l==='he')setLang('he',true)}
+function initLang(){/* always open in English */}
 
 initLang();buildWalk();moonVis();
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(buildWalk);
