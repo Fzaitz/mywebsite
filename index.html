@@ -105,7 +105,7 @@ html[dir=rtl] .dsec li{padding-left:0;padding-right:1.1rem}
 .cue::before{content:'';width:2.5rem;height:1px;background:var(--accent)}
 
 /* marquee */
-.marquee{overflow:hidden;border-block:1px solid var(--line);padding:1.6rem 0;background:var(--bg)}
+.marquee{direction:ltr;overflow:hidden;border-block:1px solid var(--line);padding:1.6rem 0;background:var(--bg)}
 .track{display:flex;width:max-content;align-items:center;animation:mq 26s linear infinite}
 @keyframes mq{to{transform:translateX(-50%)}}
 .track .w{font-family:var(--display);font-size:clamp(1.8rem,3.4vw,3.25rem);text-transform:uppercase;white-space:nowrap;flex:0 0 auto}
@@ -907,7 +907,7 @@ const HE_MAP={"Walk": "המסע", "Projects": "פרויקטים", "Impact": "ת�
 let LANG='en';const FRAME_SRC={};
 const words=["Build Bold","Claude Code","Ship Real Systems","Python","Supabase","Automate Everything","WhatsApp Bots","Data First"];
 let startMq=null;
-function fillMq(){$('#mq').innerHTML=[...(LANG==='he'?WORDS_HE:words),...(LANG==='he'?WORDS_HE:words)].map(w=>`<span class="w">${w}</span><span class="d"></span>`).join('')}
+function fillMq(){$('#mq').innerHTML=[...words,...words].map(w=>`<span class="w">${w}</span><span class="d"></span>`).join('')}
 /* Safari-safe marquee: distance measured in px (after fonts load) and run with the Web Animations API */
 {const mq=$('#mq');let mqA=null;
  startMq=()=>{const half=mq.scrollWidth/2;if(!half||!mq.animate)return;
